@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#edf4f5">
+  <meta name="description" content="Пройди арктическую экспедицию и попробуй три профессии: логист, химик-моделист и исследователь льда — эколог.">
+  <title>АРКТИКА — экспедиция будущего</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2313424b'/%3E%3Cpath d='M12 48 32 12 52 48H12M24 36h16' fill='none' stroke='%23c8f28a' stroke-width='5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#mission">К заданию</a>
+  <header class="header">
+    <a class="brand" href="./" aria-label="Арктика — главная"><span class="brand-icon">А</span><span>АРКТИКА<small>ЭКСПЕДИЦИЯ БУДУЩЕГО</small></span></a>
+    <div class="header-note"><span class="live-dot"></span> Плавающая лаборатория «Горизонт»</div>
+    <button id="reset" class="text-button" type="button">Начать заново ↺</button>
+  </header>
+  <main>
+    <div class="page-intro"><div><div class="eyebrow">ИНТЕРАКТИВНАЯ ЭКСПЕДИЦИЯ / 01</div><h1>Большие открытия.<br><span>Среди больших льдов.</span></h1></div><p>Три профессии. Одна команда.<br>Пройди СМП. Развивай лабораторию.</p></div>
+    <p id="bc-status" class="bc-status" role="status" aria-live="polite"></p>
+    <section class="dashboard" aria-label="Показатели экспедиции"><div><span>КУБИТЫ НА БАЛАНСЕ</span><strong id="wallet">0</strong></div><div><span>РЕЙТИНГ КОМАНДЫ</span><strong id="rating">0</strong></div><div><span>КРИЗИСЫ ПРОЙДЕНЫ</span><strong id="route-progress">0 / 3</strong></div></section>
+    <div class="game-layout">
+      <section class="map-card" aria-label="Карта экспедиции">
+        <div class="map-top"><span class="map-tag"><span class="live-dot"></span> СЕВЕРНЫЙ МОРСКОЙ ПУТЬ</span><span class="coordinates">78° N / 104° E</span></div>
+        <svg class="world" viewBox="0 0 760 650" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Маршрут плавающей лаборатории через три кризиса</title>
+          <desc id="map-desc">Старт на юге, ледовый пролив на западе, научная станция на севере и финишный сектор на востоке. Схематичный маршрут не является географической картой.</desc>
+          <defs>
+            <linearGradient id="ocean" x2="1" y2="1"><stop stop-color="#c6e5e6"/><stop offset="1" stop-color="#88bac8"/></linearGradient>
+            <linearGradient id="snow" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#e5f2f1"/></linearGradient>
+            <filter id="shadow"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#497e8a" flood-opacity=".15"/></filter>
+            <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#fff" stroke-opacity=".16"/></pattern>
+            <g id="mountain"><path d="m0 65 42-65 42 65Z" fill="#b8d4db"/><path d="m42 0 42 65H42Z" fill="#91b8c5"/><path d="m22 31 20-31 20 31-13-6-8 9-9-10Z" fill="#fff"/></g>
+            <g id="pine"><path d="m0 30 12-23 12 23H0m3-12 9-18 9 18H3" fill="#64929a"/><path d="M12 30v8" stroke="#64929a" stroke-width="3"/></g>
+          </defs>
+          <rect width="760" height="650" fill="url(#ocean)"/><rect width="760" height="650" fill="url(#grid)"/>
+          <g fill="none" stroke="#e9f7f7" stroke-opacity=".5"><path d="M-30 330q160-65 300 15t500-40"/><path d="M-30 348q160-65 300 15t500-40"/><path d="M410 585q150-75 390-30"/><path d="M410 599q150-75 390-30"/></g>
+          <g filter="url(#shadow)">
+            <path d="M-30 40 90 9 175 45 260 21 340 70 438 38 551 62 580 116 665 139 706 211 681 250 726 296 687 336 589 319 534 360 482 331 432 373 355 346 300 372 238 326 164 338 139 283 59 275 16 218-46 229Z" fill="url(#snow)"/>
+            <path d="m60 431 89-54 97 19 67-20 72 46 28 69-55 65-92 11-66 60-107-23-71-67Z" fill="url(#snow)"/>
+            <path d="m512 428 78-45 109 17 41 62-32 66-112 8-69-47Z" fill="#eaf5f4"/>
+            <path d="m389 383 44-22 45 26-12 30-61 4Z" fill="#edf7f6"/>
+            <path d="m52 351 50-19 28 22-22 25-57-9Z" fill="#edf7f6"/>
+            <path d="m450 550 38-12 24 22-44 20Z" fill="#e3f2f3"/>
+          </g>
+          <path d="m123 271 50-34-17-33 65-49M524 319l-25-46 27-36-18-25" fill="none" stroke="#9bc6d1" stroke-width="5"/>
+          <g opacity=".9"><use href="#mountain" x="63" y="82"/><use href="#mountain" x="116" y="53"/><use href="#mountain" x="189" y="81" transform="translate(30 22) scale(.85)"/><use href="#mountain" x="578" y="158"/><use href="#mountain" x="542" y="129"/></g>
+          <g opacity=".65"><use href="#pine" x="114" y="465"/><use href="#pine" x="90" y="480"/><use href="#pine" x="350" y="260"/><use href="#pine" x="374" y="274"/></g>
+          <ellipse cx="562" cy="300" rx="45" ry="22" fill="#94c3d2"/><ellipse cx="562" cy="295" rx="35" ry="14" fill="#add8dd"/>
+          <path id="route-line" d="M240 470Q114 392 185 259T382 170Q568 147 575 330T240 470" fill="none" stroke="#527d89" stroke-width="3" stroke-dasharray="7 9" opacity=".7"/>
+          <g transform="translate(198 397)"><path d="m0 30 39-22 57 22-40 24Z" fill="#93b4bc"/><path d="M0 5 39-16 96 5 56 27Z" fill="#244f5b"/><path d="M0 5v25l56 24V27Z" fill="#fff"/><path d="M56 27v27l40-24V5Z" fill="#d0e5e7"/><path d="m9 14 13 5v13l-13-5Zm23 10 13 5v13l-13-5Z" fill="#f2b15d"/><path d="m66 28 20-11v11L66 39Z" fill="#6b9aa7"/><path d="M39-16v-33" stroke="#244f5b" stroke-width="3"/><path d="M40-49h25l-7 10H40Z" fill="#e98152"/></g>
+          <g class="map-node" data-node="1" transform="translate(185 259)"><circle r="25"/><text text-anchor="middle" dy="6">01</text></g>
+          <g class="map-node" data-node="2" transform="translate(382 170)"><circle r="25"/><text text-anchor="middle" dy="6">02</text></g>
+          <g class="map-node" data-node="3" transform="translate(575 330)"><circle r="25"/><text text-anchor="middle" dy="6">03</text></g>
+          <g class="map-labels"><text x="112" y="308">ЛЕДОВЫЙ ПРОЛИВ</text><text x="313" y="215">НАУЧНАЯ СТАНЦИЯ</text><text x="504" y="379">ФИНИШНЫЙ СЕКТОР</text><text x="188" y="505">СТАРТ ЭКСПЕДИЦИИ</text></g>
+          <g id="rover" transform="translate(240 470)"><title>Плавающая лаборатория «Горизонт»</title><ellipse cy="8" rx="32" ry="15" fill="#ffffffa0"/><path d="M-28 0H29L18 15H-18Z" fill="#e77c49" stroke="#fff" stroke-width="2"/><path d="M-16 0V-16H12V0Z" fill="#fff" stroke="#264f59" stroke-width="2"/><path d="M-10-11H6M-10-6H6" stroke="#72a8b8" stroke-width="3"/><path d="M3-16V-27H16L12-20H3" fill="#c9ed9a" stroke="#264f59" stroke-width="2"/></g>
+          <g transform="translate(680 555)" fill="none" stroke="#375f6e"><circle r="24" opacity=".3"/><path d="m0-19 7 27-7-5-7 5Z" fill="#375f6e"/><text x="0" y="-33" text-anchor="middle" fill="#375f6e" stroke="none" font-size="11">N</text></g>
+        </svg>
+        <div class="map-bottom"><span id="location">● Ты на базе</span><span>УСЛОВНАЯ СХЕМА СМП</span></div>
+      </section>
+      <section id="mission" class="mission-card" aria-label="Текущее задание" tabindex="-1"></section>
+    </div>
+    <section class="cargo" aria-label="Оборудование лаборатории"><div class="cargo-title"><span class="eyebrow">НАША ЛАБОРАТОРИЯ</span><strong id="cargo-count">Улучшений: 0 / 9</strong></div><div id="cargo-slots" class="cargo-slots"></div></section>
+    <details class="journal"><summary><span>Бортовой компьютер</span><span id="journal-count">0 записей о навыках</span></summary><div id="journal-body"></div></details>
+    <p class="science-note">Учебная экспедиция о профессиях будущего. Сценарии и схема маршрута условные. Кубиты — игровая валюта; квантовые технологии показаны как перспективные инструменты специалистов.</p>
+    <footer><span>Исследуй. Пробуй. Открывай своё.</span><span>9–14 лет <b>·</b> около 7–8 минут <b>·</b> без таймера</span></footer>
+  </main>
+  <dialog id="reset-dialog"><h2>Начать новую экспедицию?</h2><p>Текущая экспедиция начнётся заново. Результаты завершённых экспедиций останутся в рейтинге.</p><div class="dialog-actions"><button id="cancel-reset" class="secondary">Продолжить игру</button><button id="confirm-reset" class="primary">Начать заново</button></div></dialog>
+  <noscript>Для интерактивных заданий включи JavaScript в браузере.</noscript>
+</body>
+</html>
